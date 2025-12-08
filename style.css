@@ -1,0 +1,461 @@
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans TC", "PingFang TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --bg: #eef2f7;
+  --nav: #0c1c2f;
+  --card: #ffffff;
+  --ink: #0a1733;
+  --muted: #5a6b80;
+  --accent: #1e7cf2;
+  --accent-soft: #e6f0ff;
+  --border: #d8e0ec;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-family: "Noto Sans TC", "PingFang TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-nav {
+  background: var(--nav);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.nav-links a[aria-current="page"] {
+  color: white;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0d2340, #123d73 60%, #1e7cf2);
+  color: white;
+  padding: 4rem 2rem;
+}
+
+.hero-compact {
+  padding: 3rem 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+}
+
+.search-panel {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.search-panel input,
+.search-panel select {
+  flex: 1;
+  border-radius: 999px;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+}
+
+.search-panel select {
+  background: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-panel select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.search-panel button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius: 999px;
+  padding: 0.9rem 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+main {
+  max-width: 1200px;
+  margin: -3rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.airline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.airline-card {
+  background: var(--card);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  padding: 1.8rem;
+  box-shadow: 0 25px 40px rgba(10, 23, 51, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.airline-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.airline-code {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  margin: 0 0 0.2rem;
+}
+
+.airline-card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.9rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.airline-summary {
+  margin: 0;
+  color: var(--muted);
+}
+
+.airline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.airline-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.airline-list li:last-child {
+  border-bottom: none;
+}
+
+.airline-list strong {
+  font-size: 0.95rem;
+}
+
+.airline-list span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.airline-link {
+  margin-top: auto;
+  font-weight: 600;
+}
+
+.fleet-section {
+  margin-top: 3rem;
+}
+
+.fleet-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fleet-header .eyebrow {
+  color: var(--nav);
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.fleet-header h2 {
+  margin-top: 0.2rem;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 260px) 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.detail-sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  background: var(--card);
+  border-radius: 22px;
+  padding: 1.8rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 35px rgba(10, 23, 51, 0.08);
+}
+
+.detail-sidebar h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.detail-sidebar ul {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.detail-sidebar a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.detail-sidebar a:hover {
+  color: var(--accent);
+}
+
+.sidebar-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 0.8rem;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aircraft-card {
+  background: var(--card);
+  border-radius: 28px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 55px rgba(10, 23, 51, 0.08);
+}
+
+.aircraft-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.aircraft-code {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.aircraft-card h2 {
+  margin: 0.2rem 0;
+  font-size: 1.8rem;
+}
+
+.family {
+  margin: 0;
+  color: var(--muted);
+}
+
+.aircraft-summary {
+  margin: 0 0 1.3rem;
+  color: var(--muted);
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.spec-block {
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+  padding: 1rem;
+}
+
+.spec-block strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.spec-block span {
+  font-size: 1.2rem;
+}
+
+.seat-callout {
+  margin-top: 1.2rem;
+  background: var(--accent-soft);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--accent);
+  color: var(--ink);
+}
+
+.airline-article .aircraft-summary {
+  margin-bottom: 1.5rem;
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.model-card {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 1.2rem;
+  background: #f9fbff;
+  box-shadow: inset 0 0 0 1px rgba(30, 124, 242, 0.05);
+}
+
+.model-card h3 {
+  margin: 0;
+}
+
+.model-role {
+  margin: 0.2rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.model-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.model-specs strong {
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .search-panel {
+    flex-direction: column;
+  }
+
+  main {
+    margin-top: -2rem;
+  }
+
+  .airline-card header,
+  .aircraft-card header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
