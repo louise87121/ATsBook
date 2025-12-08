@@ -1,0 +1,396 @@
+[
+  {
+    "id": "eva",
+    "code": "BR",
+    "shortName": "長榮航空",
+    "englishName": "EVA Air",
+    "displayName": "長榮航空 EVA Air",
+    "family": "Star Alliance ・ 台灣桃園為基地",
+    "tag": "Premium Leisure",
+    "summary": "長榮主打清新質感與穩定服務，長程線以 A350-900 與 787-10 操作，兼顧商務與休閒旅客；區域線逐步導入 A321neo LR。",
+    "models": [
+      {
+        "title": "A350-900",
+        "role": "長程旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "J40 / W32 / Y253" },
+          { "label": "亮點：", "value": "6,000 呎艙壓、全艙個人娛樂與更寬窗戶。" },
+          { "label": "選位：", "value": "9 列前安靜小客艙；32 排後變為 18 吋座椅。" }
+        ]
+      },
+      {
+        "title": "787-10",
+        "role": "區域長程",
+        "specs": [
+          { "label": "艙等：", "value": "J36 / W27 / Y301" },
+          { "label": "亮點：", "value": "電動調光窗、濕度較高、全艙 USB/AC。" },
+          { "label": "選位：", "value": "34 排前豪經 2-3-2；57 排後 3-3-3 需留意腿部。" }
+        ]
+      },
+      {
+        "title": "A321neo LR",
+        "role": "窄體遠程",
+        "specs": [
+          { "label": "艙等：", "value": "J16 / Y168" },
+          { "label": "亮點：", "value": "單走道卻有平躺商務與 Wi-Fi，適合中程。" },
+          { "label": "選位：", "value": "20 排前窗位避開機翼；最後一排靠廚房較吵。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ci",
+    "code": "CI",
+    "shortName": "中華航空",
+    "englishName": "China Airlines",
+    "displayName": "中華航空 China Airlines",
+    "family": "SkyTeam ・ 台北、台中雙樞紐",
+    "tag": "Flag Carrier",
+    "summary": "華航以 777-300ER 及 350-900 服務歐美澳洲線，並以最新 A321neo 接手東北亞、東南亞航線；艙等設計帶入大量台灣元素。",
+    "models": [
+      {
+        "title": "777-300ER",
+        "role": "超長程主力",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J40 / W40 / Y256" },
+          { "label": "亮點：", "value": "Sky Lounge、3-4-3 經濟艙、全艙 Wi-Fi。" },
+          { "label": "選位：", "value": "26-33 排商務私密；經濟 50A/K 靠窗無缺窗。" }
+        ]
+      },
+      {
+        "title": "A350-900",
+        "role": "長程省油型",
+        "specs": [
+          { "label": "艙等：", "value": "J32 / W31 / Y243" },
+          { "label": "亮點：", "value": "氣氛燈與攝影牆設計，濕度佳，適合長途。" },
+          { "label": "選位：", "value": "11 列後小客艙寧靜；36 排後靠廁所需考慮。" }
+        ]
+      },
+      {
+        "title": "A321neo",
+        "role": "區域線新艙",
+        "specs": [
+          { "label": "艙等：", "value": "J12 / Y168" },
+          { "label": "亮點：", "value": "商務 2-2 全座電源，經濟 3-3 座距 32 吋。" },
+          { "label": "選位：", "value": "緊急出口 25 排腿部極佳；33 排後靠廚房較吵。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jx",
+    "code": "JX",
+    "shortName": "星宇航空",
+    "englishName": "STARLUX Airlines",
+    "displayName": "星宇航空 STARLUX Airlines",
+    "family": "Boutique Luxury ・ 台北為基地",
+    "tag": "Next-Gen Premium",
+    "summary": "星宇航空主打精品旅遊體驗，全機隊採用窄體 A321neo 與寬體 A350、A330neo 組合，無論長短程都強調完整娛樂與高質感服務。",
+    "aliases": ["STARLUX"],
+    "models": [
+      {
+        "title": "A350-900",
+        "role": "長程旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "F4 / J26 / W36 / Y240" },
+          { "label": "亮點：", "value": "精品頭等套房、星宇香氛與可調氣氛燈。" },
+          { "label": "選位：", "value": "2 列頭等面窗、37 排後經濟座間增加。" }
+        ]
+      },
+      {
+        "title": "A330-900neo",
+        "role": "區域長程",
+        "specs": [
+          { "label": "艙等：", "value": "J28 / W32 / Y269" },
+          { "label": "亮點：", "value": "全艙 Type-A/C 充電、第二代星宇機上娛樂。" },
+          { "label": "選位：", "value": "34 排豪經區安靜；59 排後靠近廚房需留意。" }
+        ]
+      },
+      {
+        "title": "A321neo",
+        "role": "精品窄體",
+        "specs": [
+          { "label": "艙等：", "value": "J8 / Y180" },
+          { "label": "亮點：", "value": "全艙 4K 螢幕、商務 180 度傾斜。" },
+          { "label": "選位：", "value": "20 排前避開引擎噪音；35 排後靠近廁所。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cx",
+    "code": "CX",
+    "shortName": "國泰航空",
+    "englishName": "Cathay Pacific",
+    "displayName": "國泰航空 Cathay Pacific",
+    "family": "oneworld ・ 香港國際機場樞紐",
+    "tag": "Asia Icon",
+    "summary": "國泰航空以長程網絡見長，主力為 A350 與 777，長短程皆導入最新 Aria Suite 與個人娛樂系統，延續亞洲頂級服務。",
+    "aliases": ["Cathay"],
+    "models": [
+      {
+        "title": "A350-1000",
+        "role": "長程主力",
+        "specs": [
+          { "label": "艙等：", "value": "J46 / W32 / Y256" },
+          { "label": "亮點：", "value": "全平躺商務 1-2-1、4K 螢幕與高濕度艙壓。" },
+          { "label": "選位：", "value": "Row 12-18 商務最安靜；48 排後經濟靠窗較私密。" }
+        ]
+      },
+      {
+        "title": "777-300ER",
+        "role": "全球旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "F6 / J53 / W34 / Y182" },
+          { "label": "亮點：", "value": "經典一字排商務、StudioCX 娛樂、Wi-Fi。" },
+          { "label": "選位：", "value": "商務 15A/K 無鄰座；經濟 60A/K 靠窗無缺窗。" }
+        ]
+      },
+      {
+        "title": "A321neo",
+        "role": "區域精品",
+        "specs": [
+          { "label": "艙等：", "value": "J12 / Y190" },
+          { "label": "亮點：", "value": "商務反魚骨、全艙 4K 螢幕與 Wi-Fi。" },
+          { "label": "選位：", "value": "緊急出口 23 排腿部大；尾艙 34 排較吵。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sq",
+    "code": "SQ",
+    "shortName": "新加坡航空",
+    "englishName": "Singapore Airlines",
+    "displayName": "新加坡航空 Singapore Airlines",
+    "family": "Star Alliance ・ 新加坡樟宜樞紐",
+    "tag": "Benchmark Service",
+    "summary": "SIA 以豪華服務聞名，A350-900 與 787-10 交錯運用，並保留 777-300ER 執飛北美、歐洲長途；艙等配置一致性高。",
+    "models": [
+      {
+        "title": "A350-900",
+        "role": "長程骨幹",
+        "specs": [
+          { "label": "艙等：", "value": "J42 / W24 / Y187（Ultra Long Range 版本刪除經濟）" },
+          { "label": "亮點：", "value": "全平躺商務 1-2-1、豪經 2-4-2。" },
+          { "label": "選位：", "value": "前艙 Row 11-18 噪音最低；豪經中排桌板較穩。" }
+        ]
+      },
+      {
+        "title": "787-10",
+        "role": "區域旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "J36 / Y301" },
+          { "label": "亮點：", "value": "區域商務 1-2-1、經濟 3-3-3、全艙雙 USB。" },
+          { "label": "選位：", "value": "Row 18-20 商務中艙最靜；經濟 43C/H 腿部寬。" }
+        ]
+      },
+      {
+        "title": "777-300ER",
+        "role": "全球主力",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J48 / W28 / Y184" },
+          { "label": "亮點：", "value": "寬敞套房式商務、3-3-3 經濟座距 32 吋。" },
+          { "label": "選位：", "value": "豪經 Row 31 伸展佳；經濟 59A/K 靠窗無缺窗。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jl",
+    "code": "JL",
+    "shortName": "日本航空",
+    "englishName": "Japan Airlines",
+    "displayName": "日本航空 Japan Airlines",
+    "family": "oneworld ・ 東京成田 / 羽田雙樞紐",
+    "tag": "Omotenashi",
+    "summary": "JAL 以日式款待著稱，新一代 A350 與經典 777-300ER 共同服務國際航線，提供 SKY SUITE 系列座椅與高品質餐飲。",
+    "models": [
+      {
+        "title": "A350-900",
+        "role": "新世代旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "J56 / W24 / Y155（國際版）" },
+          { "label": "亮點：", "value": "全艙新氣氛燈、雙層置物空間。" },
+          { "label": "選位：", "value": "Row 2-6 商務私密；經濟 40A/K 無窗需避免。" }
+        ]
+      },
+      {
+        "title": "777-300ER",
+        "role": "超長程骨幹",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J49 / W40 / Y147" },
+          { "label": "亮點：", "value": "SKY SUITE、Premium Economy 2-4-2。" },
+          { "label": "選位：", "value": "Premium Row 17 腿部最大；經濟尾艙較安靜。" }
+        ]
+      },
+      {
+        "title": "767-300ER (Refit)",
+        "role": "中程補位",
+        "specs": [
+          { "label": "艙等：", "value": "J24 / Y175" },
+          { "label": "亮點：", "value": "SKY SUITE II 商務、2-3-2 經濟更寬。" },
+          { "label": "選位：", "value": "商務 1A/L 全閉門；經濟 45A/K 靠窗但靠廚房。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ana",
+    "code": "NH",
+    "shortName": "全日空",
+    "englishName": "ANA",
+    "displayName": "全日空 ANA",
+    "family": "Star Alliance ・ 東京羽田 / 成田雙樞紐",
+    "tag": "Inspiration of Japan",
+    "summary": "ANA 以精緻服務與準點率著稱，主力 777-300ER、787-9 與 A380 Flying Honu 服務歐美與夏威夷航線，提供豐富艙等選擇。",
+    "aliases": ["ANA Airlines"],
+    "models": [
+      {
+        "title": "777-300ER",
+        "role": "Business Jet風旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J64 / W24 / Y112" },
+          { "label": "亮點：", "value": "The Suite/The Room 座椅、DoCoMo Wi-Fi。" },
+          { "label": "選位：", "value": "商務 7A/K 為單人座；經濟 35C/H 伸展佳。" }
+        ]
+      },
+      {
+        "title": "787-9",
+        "role": "省油長程",
+        "specs": [
+          { "label": "艙等：", "value": "J48 / W21 / Y146" },
+          { "label": "亮點：", "value": "加濕艙壓、智慧變色窗、個人燈光。" },
+          { "label": "選位：", "value": "Row 20-22 豪經最安靜；經濟 45A/K 無缺窗。" }
+        ]
+      },
+      {
+        "title": "A380-800 Flying Honu",
+        "role": "夏威夷度假",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J56 / W73 / Y383" },
+          { "label": "亮點：", "value": "雙層休憩空間、特製親子區、機身彩繪。" },
+          { "label": "選位：", "value": "Upper Deck 前艙最靜；下層 60 列後靠近遊戲室。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ek",
+    "code": "EK",
+    "shortName": "阿聯酋航空",
+    "englishName": "Emirates",
+    "displayName": "阿聯酋航空 Emirates",
+    "family": "Dubai Hub ・ 全球多點直飛",
+    "tag": "Global Luxury",
+    "summary": "阿聯酋航空以豪華 A380 與 777 機隊聞名，提供 Shower Spa、全艙 ICE 娛樂與頂級餐飲，長程航點遍及六大洲。",
+    "models": [
+      {
+        "title": "A380-800",
+        "role": "空中皇宮",
+        "specs": [
+          { "label": "艙等：", "value": "F14 / J76 / W56 / Y426" },
+          { "label": "亮點：", "value": "頭等淋浴、Upper Deck 酒吧、ICE 5K 螢幕。" },
+          { "label": "選位：", "value": "頭等 2A/K 私密；經濟 68A/K 靠窗無缺窗。" }
+        ]
+      },
+      {
+        "title": "777-300ER",
+        "role": "全球主力",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J42 / W24 / Y304" },
+          { "label": "亮點：", "value": "新世代頭等套房、寬體經濟、Live TV。" },
+          { "label": "選位：", "value": "商務 7A/K 為單人隔間；經濟 44A/K 背後無人。" }
+        ]
+      },
+      {
+        "title": "777-9",
+        "role": "未來旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J52 / W32 / Y250（規劃）" },
+          { "label": "亮點：", "value": "下一代套房與超寬艙門，機上 5G Wi-Fi。" },
+          { "label": "選位：", "value": "首批建議選擇前艙 Row 1-4 避開引擎噪音。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "qr",
+    "code": "QR",
+    "shortName": "卡達航空",
+    "englishName": "Qatar Airways",
+    "displayName": "卡達航空 Qatar Airways",
+    "family": "Doha Hub ・ Skytrax 多次最佳",
+    "tag": "Qsuite Pioneer",
+    "summary": "卡達航空憑藉 Qsuite 私密包廂與細膩服務連年奪獎，A350 與 777 主力執飛全球航線，搭配 787 補強中長程市場。",
+    "models": [
+      {
+        "title": "A350-1000",
+        "role": "Next-Gen Flagship",
+        "specs": [
+          { "label": "艙等：", "value": "J46 / W24 / Y281" },
+          { "label": "亮點：", "value": "Qsuite 1-2-1、HEPA 濾淨與情境燈光。" },
+          { "label": "選位：", "value": "Qsuite Row 1-6 形成家庭套房；經濟 33A/K 靠窗佳。" }
+        ]
+      },
+      {
+        "title": "777-300ER",
+        "role": "遠程骨幹",
+        "specs": [
+          { "label": "艙等：", "value": "J42 / W24 / Y316" },
+          { "label": "亮點：", "value": "部分機隊裝設 Qsuite、三餐主廚菜單。" },
+          { "label": "選位：", "value": "商務 9E/F 可變雙人床；經濟 25ABC 腿部空間多。" }
+        ]
+      },
+      {
+        "title": "787-9",
+        "role": "中長程補位",
+        "specs": [
+          { "label": "艙等：", "value": "J30 / W28 / Y281" },
+          { "label": "亮點：", "value": "Adient Ascent 商務、全艙 Wi-Fi。" },
+          { "label": "選位：", "value": "商務 Row 6-8 最私密；經濟 39A/K 免受機翼阻擋。" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lh",
+    "code": "LH",
+    "shortName": "漢莎航空",
+    "englishName": "Lufthansa",
+    "displayName": "漢莎航空 Lufthansa",
+    "family": "Star Alliance ・ 法蘭克福 / 慕尼黑樞紐",
+    "tag": "European Flagship",
+    "summary": "漢莎航空以德系精確與遍布歐洲的轉機網絡著稱，747-8 與 A350 組成遠程骨幹，並陸續引進 787-9 與新世代 Allegris 客艙。",
+    "aliases": ["Lufthansa Airlines"],
+    "models": [
+      {
+        "title": "747-8 Intercontinental",
+        "role": "女王旗艦",
+        "specs": [
+          { "label": "艙等：", "value": "F8 / J80 / W32 / Y244" },
+          { "label": "亮點：", "value": "上層甲板商務、頭等雙人窗位、FlyNet。" },
+          { "label": "選位：", "value": "Upper Deck 84A/K 經典；經濟 45C/H 腿部寬。" }
+        ]
+      },
+      {
+        "title": "A350-900",
+        "role": "省油長程",
+        "specs": [
+          { "label": "艙等：", "value": "J48 / W21 / Y224" },
+          { "label": "亮點：", "value": "Allegris 新艙、靜音機艙、Mood Lighting。" },
+          { "label": "選位：", "value": "商務 6A/K 直接面窗；經濟 27D/E/F 通道便利。" }
+        ]
+      },
+      {
+        "title": "787-9",
+        "role": "新世代補強",
+        "specs": [
+          { "label": "艙等：", "value": "J26 / W21 / Y247" },
+          { "label": "亮點：", "value": "最新 Allegris 座位、超大窗、先進空調。" },
+          { "label": "選位：", "value": "豪經 Row 10 伸展佳；經濟 40A/K 靠窗無缺窗。" }
+        ]
+      }
+    ]
+  }
+]
