@@ -18,27 +18,15 @@
         <div class="search-panel" aria-label="搜尋與篩選機型">
           <div class="filter-row filter-row-inline">
             <div class="filter-field">
-              <label for="airlineInput">航空公司</label>
-              <input
-                id="airlineInput"
-                type="search"
-                placeholder="輸入航空公司，例如：長榮"
-                list="airlinesData"
-              />
-            </div>
-            <div class="filter-field">
-              <label for="manufacturerFilter">製造商</label>
-              <input
-                id="manufacturerFilter"
-                type="search"
-                placeholder="輸入製造商，例如：空巴、波音"
-                list="manufacturerData"
-              />
+              <label for="airlineFilter">航空公司</label>
+              <select id="airlineFilter">
+                <option value="">選擇航空公司</option>
+              </select>
             </div>
             <div class="filter-field">
               <label for="modelFilter">機型</label>
-              <select id="modelFilter" disabled>
-                <option value="">請先選製造商</option>
+              <select id="modelFilter">
+                <option value="">選擇機型</option>
               </select>
             </div>
             <div class="filter-actions">
@@ -46,11 +34,6 @@
             </div>
           </div>
         </div>
-        <datalist id="airlinesData"></datalist>
-        <datalist id="manufacturerData">
-          <option value="空巴"></option>
-          <option value="波音"></option>
-        </datalist>
       </div>
     </header>
     <main>

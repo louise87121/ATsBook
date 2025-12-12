@@ -1,39 +1,28 @@
-const manufacturerFilter = document.getElementById("manufacturerFilter");
+const airlineFilter = document.getElementById("airlineFilter");
 const modelFilter = document.getElementById("modelFilter");
-const airlineDatalist = document.getElementById("airlinesData");
 const sidebarList = document.getElementById("airlineSidebar");
 const detailContainer = document.getElementById("airlineDetails");
 
-const modelOptions = {
-  airbus: [
-    { value: "a350-900", label: "Airbus A350-900" },
-    { value: "a350-1000", label: "Airbus A350-1000" },
-    { value: "a321neo", label: "Airbus A321neo" },
-    { value: "a321neo-lr", label: "Airbus A321neo LR" },
-    { value: "a330-900neo", label: "Airbus A330-900neo" },
-    { value: "a380-800", label: "Airbus A380-800" },
-    { value: "a380-800-flying-honu", label: "Airbus A380-800 Flying Honu" },
-  ],
-  boeing: [
-    { value: "787-10", label: "Boeing 787-10" },
-    { value: "787-9", label: "Boeing 787-9" },
-    { value: "777-300er", label: "Boeing 777-300ER" },
-    { value: "777-9", label: "Boeing 777-9" },
-    { value: "767-300er-refit", label: "Boeing 767-300ER (Refit)" },
-    { value: "747-8-intercontinental", label: "Boeing 747-8 Intercontinental" },
-  ],
-};
+const modelOptions = [
+  { value: "a350-900", label: "Airbus A350-900" },
+  { value: "a350-1000", label: "Airbus A350-1000" },
+  { value: "a321neo", label: "Airbus A321neo" },
+  { value: "a321neo-lr", label: "Airbus A321neo LR" },
+  { value: "a330-900neo", label: "Airbus A330-900neo" },
+  { value: "a380-800", label: "Airbus A380-800" },
+  { value: "a380-800-flying-honu", label: "Airbus A380-800 Flying Honu" },
+  { value: "787-10", label: "Boeing 787-10" },
+  { value: "787-9", label: "Boeing 787-9" },
+  { value: "777-300er", label: "Boeing 777-300ER" },
+  { value: "777-9", label: "Boeing 777-9" },
+  { value: "767-300er-refit", label: "Boeing 767-300ER (Refit)" },
+  { value: "747-8-intercontinental", label: "Boeing 747-8 Intercontinental" },
+];
 
-const manufacturerAliasMap = {
-  airbus: "airbus",
-  空巴: "airbus",
-  空中巴士: "airbus",
-  boeing: "boeing",
-  波音: "boeing",
-};
-
-const getPrimaryAirlineName = (airline = {}) =>
-  airline.shortName || airline.englishName || airline.displayName || airline.code;
+const modelMap = modelOptions.reduce((acc, model) => {
+  acc[model.value] = model;
+  return acc;
+}, {});
 
 const modelFamilyMap = {
   "a350-900": "a350",
@@ -57,30 +46,28 @@ const slugifyModel = (text = "") =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-const resolveFamilySlug = (modelTitle = "") => {
-  const slug = slugifyModel(modelTitle);
-  return modelFamilyMap[slug] || slug;
-};
-
-const normalizeManufacturerValue = (value = "") => {
-  const compact = (value || "").toString().trim().toLowerCase().replace(/\s+/g, "");
-  return manufacturerAliasMap[compact] || "";
-};
+const airlineHasModel = (airline = {}, slug = "") =>
+  !slug ||
+  (airline.models || []).some((model = {}) => slugifyModel(model.title || "") === slug);
 
 const buildSpecList = (specs = []) =>
   (specs || [])
     .map((spec) => `<li><strong>${spec.label}</strong>${spec.value}</li>`)
     .join("");
 
+const resolveFamilySlug = (modelTitle = "") => {
+  const slug = slugifyModel(modelTitle);
+  return modelFamilyMap[slug] || slug;
+};
+
 const buildModelCards = (models = []) =>
   (models || [])
-    .map(
-      (model = {}) => {
-        const modelSlug = slugifyModel(model.title || "");
-        const familySlug = resolveFamilySlug(model.title || "");
-        const href = familySlug ? `aircraft.html?family=${encodeURIComponent(familySlug)}` : "#";
-        const label = familySlug ? `前往 ${model.title} 所屬家族介紹` : `${model.title}`;
-        return `
+    .map((model = {}) => {
+      const modelSlug = slugifyModel(model.title || "");
+      const familySlug = resolveFamilySlug(model.title || "");
+      const href = familySlug ? `aircraft.html?family=${encodeURIComponent(familySlug)}` : "#";
+      const label = familySlug ? `前往 ${model.title} 所屬家族介紹` : `${model.title}`;
+      return `
         <a class="model-card model-card-link" href="${href}" aria-label="${label}" data-model="${modelSlug}">
           <h3>${model.title}</h3>
           <p class="model-role">${model.role}</p>
@@ -89,8 +76,7 @@ const buildModelCards = (models = []) =>
           </ul>
         </a>
       `;
-      },
-    )
+    })
     .join("");
 
 const renderAirlines = (airlines = []) => {
@@ -128,20 +114,81 @@ const renderAirlines = (airlines = []) => {
       sidebarList.appendChild(li);
     });
   }
+};
 
-  if (airlineDatalist) {
-    const datalistValues = new Set();
-    airlines.forEach((airline) => {
-      const primaryName = getPrimaryAirlineName(airline);
-      if (primaryName) datalistValues.add(primaryName);
-    });
-    airlineDatalist.innerHTML = "";
-    datalistValues.forEach((name) => {
-      const option = document.createElement("option");
-      option.value = name;
-      airlineDatalist.appendChild(option);
-    });
+let airlineData = [];
+let allowedModelSlugs = null;
+
+const setModelOptions = (options = []) => {
+  if (!modelFilter) return;
+  modelFilter.innerHTML = '<option value="">選擇機型</option>';
+  options.forEach((option) => {
+    const opt = document.createElement("option");
+    opt.value = option.value;
+    opt.textContent = option.label;
+    modelFilter.appendChild(opt);
+  });
+  modelFilter.disabled = !options.length;
+};
+
+const resetModelOptions = () => {
+  allowedModelSlugs = null;
+  setModelOptions(modelOptions);
+  modelFilter.value = "";
+};
+
+const updateModelOptionsForAirline = () => {
+  const airlineId = airlineFilter?.value || "";
+  if (!airlineId) {
+    resetModelOptions();
+    return;
   }
+  const airline = airlineData.find((item) => item.id === airlineId);
+  if (!airline) {
+    resetModelOptions();
+    return;
+  }
+  const slugs = Array.from(
+    new Set((airline.models || []).map((model = {}) => slugifyModel(model.title || ""))).values(),
+  );
+  allowedModelSlugs = new Set(slugs);
+  const filteredOptions = slugs.map((slug) => modelMap[slug]).filter(Boolean);
+  setModelOptions(filteredOptions);
+  if (!filteredOptions.length) {
+    modelFilter.disabled = true;
+  }
+};
+
+const applyFilters = () => {
+  const airlineChoice = airlineFilter?.value || "";
+  const modelChoice = (modelFilter?.value || "").trim();
+
+  const filtered = airlineData.filter((airline) => {
+    if (airlineChoice && airline.id !== airlineChoice) return false;
+    if (!airlineHasModel(airline, modelChoice)) return false;
+    return true;
+  });
+
+  renderAirlines(filtered);
+};
+
+const handleAirlineChange = () => {
+  updateModelOptionsForAirline();
+  if (allowedModelSlugs && modelFilter.value && !allowedModelSlugs.has(modelFilter.value)) {
+    modelFilter.value = "";
+  }
+  applyFilters();
+};
+
+const populateAirlineOptions = () => {
+  if (!airlineFilter) return;
+  airlineFilter.innerHTML = '<option value="">選擇航空公司</option>';
+  airlineData.forEach((airline) => {
+    const option = document.createElement("option");
+    option.value = airline.id;
+    option.textContent = airline.displayName;
+    airlineFilter.appendChild(option);
+  });
 };
 
 fetch("data.json")
@@ -151,6 +198,9 @@ fetch("data.json")
   })
   .then((data) => {
     if (Array.isArray(data)) {
+      airlineData = data;
+      resetModelOptions();
+      populateAirlineOptions();
       renderAirlines(data);
     }
   })
@@ -162,22 +212,10 @@ fetch("data.json")
     }
   });
 
-const handleManufacturerSelection = () => {
-  const choice = normalizeManufacturerValue(manufacturerFilter.value);
-  modelFilter.innerHTML = "";
-  if (!choice || !modelOptions[choice]) {
-    modelFilter.disabled = true;
-    modelFilter.insertAdjacentHTML("beforeend", '<option value="">請先選製造商</option>');
-    return;
-  }
-  modelFilter.disabled = false;
-  modelOptions[choice].forEach((option) => {
-    const opt = document.createElement("option");
-    opt.value = option.value;
-    opt.textContent = option.label;
-    modelFilter.appendChild(opt);
-  });
-};
+if (modelFilter) {
+  modelFilter.addEventListener("change", applyFilters);
+}
 
-manufacturerFilter.addEventListener("input", handleManufacturerSelection);
-manufacturerFilter.addEventListener("change", handleManufacturerSelection);
+if (airlineFilter) {
+  airlineFilter.addEventListener("change", handleAirlineChange);
+}
