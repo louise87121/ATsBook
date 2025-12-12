@@ -6,13 +6,65 @@ const detailContainer = document.getElementById("airlineDetails");
 
 const modelOptions = {
   airbus: [
-    { value: "a350", label: "Airbus A350-900" },
-    { value: "a321neo", label: "Airbus A321neo LR" },
+    { value: "a350-900", label: "Airbus A350-900" },
+    { value: "a350-1000", label: "Airbus A350-1000" },
+    { value: "a321neo", label: "Airbus A321neo" },
+    { value: "a321neo-lr", label: "Airbus A321neo LR" },
+    { value: "a330-900neo", label: "Airbus A330-900neo" },
+    { value: "a380-800", label: "Airbus A380-800" },
+    { value: "a380-800-flying-honu", label: "Airbus A380-800 Flying Honu" },
   ],
   boeing: [
-    { value: "b7810", label: "Boeing 787-10" },
-    { value: "b773er", label: "Boeing 777-300ER" },
+    { value: "787-10", label: "Boeing 787-10" },
+    { value: "787-9", label: "Boeing 787-9" },
+    { value: "777-300er", label: "Boeing 777-300ER" },
+    { value: "777-9", label: "Boeing 777-9" },
+    { value: "767-300er-refit", label: "Boeing 767-300ER (Refit)" },
+    { value: "747-8-intercontinental", label: "Boeing 747-8 Intercontinental" },
   ],
+};
+
+const manufacturerAliasMap = {
+  airbus: "airbus",
+  空巴: "airbus",
+  空中巴士: "airbus",
+  boeing: "boeing",
+  波音: "boeing",
+};
+
+const getPrimaryAirlineName = (airline = {}) =>
+  airline.shortName || airline.englishName || airline.displayName || airline.code;
+
+const modelFamilyMap = {
+  "a350-900": "a350",
+  "a350-1000": "a350",
+  "a321neo": "a321neo",
+  "a321neo-lr": "a321neo",
+  "a330-900neo": "a330neo",
+  "a380-800": "a380",
+  "a380-800-flying-honu": "a380",
+  "777-300er": "b777",
+  "777-9": "b777x",
+  "787-10": "b787",
+  "787-9": "b787",
+  "767-300er-refit": "b767",
+  "747-8-intercontinental": "b747",
+};
+
+const slugifyModel = (text = "") =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+const resolveFamilySlug = (modelTitle = "") => {
+  const slug = slugifyModel(modelTitle);
+  return modelFamilyMap[slug] || slug;
+};
+
+const normalizeManufacturerValue = (value = "") => {
+  const compact = (value || "").toString().trim().toLowerCase().replace(/\s+/g, "");
+  return manufacturerAliasMap[compact] || "";
 };
 
 const buildSpecList = (specs = []) =>
@@ -23,15 +75,21 @@ const buildSpecList = (specs = []) =>
 const buildModelCards = (models = []) =>
   (models || [])
     .map(
-      (model) => `
-        <section class="model-card">
+      (model = {}) => {
+        const modelSlug = slugifyModel(model.title || "");
+        const familySlug = resolveFamilySlug(model.title || "");
+        const href = familySlug ? `aircraft.html?family=${encodeURIComponent(familySlug)}` : "#";
+        const label = familySlug ? `前往 ${model.title} 所屬家族介紹` : `${model.title}`;
+        return `
+        <a class="model-card model-card-link" href="${href}" aria-label="${label}" data-model="${modelSlug}">
           <h3>${model.title}</h3>
           <p class="model-role">${model.role}</p>
           <ul class="model-specs">
             ${buildSpecList(model.specs)}
           </ul>
-        </section>
-      `,
+        </a>
+      `;
+      },
     )
     .join("");
 
@@ -74,9 +132,8 @@ const renderAirlines = (airlines = []) => {
   if (airlineDatalist) {
     const datalistValues = new Set();
     airlines.forEach((airline) => {
-      if (airline.shortName) datalistValues.add(airline.shortName);
-      if (airline.englishName) datalistValues.add(airline.englishName);
-      (airline.aliases || []).forEach((alias) => datalistValues.add(alias));
+      const primaryName = getPrimaryAirlineName(airline);
+      if (primaryName) datalistValues.add(primaryName);
     });
     airlineDatalist.innerHTML = "";
     datalistValues.forEach((name) => {
@@ -105,8 +162,8 @@ fetch("data.json")
     }
   });
 
-manufacturerFilter.addEventListener("change", () => {
-  const choice = manufacturerFilter.value;
+const handleManufacturerSelection = () => {
+  const choice = normalizeManufacturerValue(manufacturerFilter.value);
   modelFilter.innerHTML = "";
   if (!choice || !modelOptions[choice]) {
     modelFilter.disabled = true;
@@ -120,4 +177,7 @@ manufacturerFilter.addEventListener("change", () => {
     opt.textContent = option.label;
     modelFilter.appendChild(opt);
   });
-});
+};
+
+manufacturerFilter.addEventListener("input", handleManufacturerSelection);
+manufacturerFilter.addEventListener("change", handleManufacturerSelection);

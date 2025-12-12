@@ -1,0 +1,231 @@
+[
+  {
+    "id": "a350",
+    "name": "Airbus A350",
+    "nickname": "柔光遠程世代",
+    "manufacturer": "Airbus · New Widebody",
+    "description": "A350 家族以 53% 複合材料與新世代翼梢翼打造，兼顧長程效率與旅客舒適度，逐漸成為全球航空的遠程主力骨幹。",
+    "stats": [
+      { "label": "最大航程", "value": "16,100 公里" },
+      { "label": "翼展", "value": "64.75 公尺" },
+      { "label": "巡航速度", "value": "Mach 0.85" },
+      { "label": "典型艙等", "value": "3-4 艙配置" }
+    ],
+    "comfort": "6,000 呎艙壓、20% 更高濕度與寬窗戶讓 15 小時航程也能維持清爽。",
+    "routes": "跨太平洋、亞洲－歐洲、亞洲－北美等長程幹線。",
+    "spotlight": [
+      "Trent XWB 引擎提供 25% 燃油節省。",
+      "Airspace 客艙支援情境燈光、寬大置物箱。",
+      "1-2-1 商務艙配置成為豪華航空標配。"
+    ],
+    "airlines": ["長榮航空", "中華航空", "星宇航空", "新加坡航空", "日本航空", "卡達航空", "漢莎航空"],
+    "aliases": ["A350", "Airbus A350"],
+    "variants": [
+      { "id": "a350-900", "badge": "長程主力", "summary": "-900 版本以均衡的航程與載客量著稱，是多數航空首批導入的機型。" },
+      { "id": "a350-1000", "badge": "超長程加長", "summary": "加長 7 公尺的 -1000 專攻高密度越洋航線，搭載更強勁的 Trent XWB-97。" }
+    ]
+  },
+  {
+    "id": "a321neo",
+    "name": "Airbus A321neo",
+    "nickname": "新世代窄體明星",
+    "manufacturer": "Airbus · Single Aisle",
+    "description": "A321neo 以新引擎與翼梢翼提升油耗效率，卻仍保有寬敞單走道機艙，成為亞洲區域線最受歡迎的窄體機。",
+    "stats": [
+      { "label": "最大航程", "value": "7,400 公里" },
+      { "label": "機身長", "value": "44.5 公尺" },
+      { "label": "翼展", "value": "35.8 公尺" },
+      { "label": "典型座位", "value": "180-240 席" }
+    ],
+    "comfort": "Space-Flex 客艙可提供大型行李箱、情境燈光與 Wi-Fi，讓單走道也能體驗精品座艙。",
+    "routes": "東北亞、東南亞、中東線甚至 7 小時跨海航線。",
+    "spotlight": [
+      "CFM LEAP-1A 或 PW1100G 引擎帶來 15% 節能。",
+      "LR/XLR 版本可延伸航程至 8,700 公里。",
+      "支援最新反魚骨或全平躺商務艙。"
+    ],
+    "airlines": ["長榮航空", "中華航空", "星宇航空", "國泰航空"],
+    "aliases": ["A321", "A321neo LR", "A321LR"],
+    "variants": [
+      { "id": "a321neo", "badge": "區域全能", "summary": "標準 neo 以 190-220 席支援高頻中程線。" },
+      { "id": "a321neo-lr", "badge": "遠程加油箱", "summary": "LR 版本添加 ACT 油箱，能橫跨 7 小時航線，仍保有全平躺商務艙。" }
+    ]
+  },
+  {
+    "id": "a330neo",
+    "name": "Airbus A330neo",
+    "nickname": "彈性中長程",
+    "manufacturer": "Airbus · Widebody",
+    "description": "A330neo 將經典 A330 結構結合 A350 技術，成為中長程市場的省油選項，適合亞洲－澳洲、歐洲－中東航線。",
+    "stats": [
+      { "label": "航程", "value": "13,300 公里" },
+      { "label": "翼展", "value": "64 公尺" },
+      { "label": "載客量", "value": "260-300 席" },
+      { "label": "最大起飛重量", "value": "251 噸" }
+    ],
+    "comfort": "Airspace 客艙、寬敞置物箱與靜音空調讓中長程旅程更放鬆。",
+    "routes": "亞洲－澳洲、跨太平洋次要航線、中東－歐洲。",
+    "spotlight": [
+      "Trent 7000 引擎採齒輪風扇技術。",
+      "維持 A330 兼容的貨艙與地勤設備。",
+      "可提供 Premium Economy 與最新 IFE。"
+    ],
+    "airlines": ["星宇航空"],
+    "aliases": ["A330neo", "Airbus A330neo"],
+    "variants": [
+      { "id": "a330-900neo", "badge": "全艙升級", "summary": "A330-900neo 憑藉中載客量與省油效益，最適合精品航空拓展長途網路。" }
+    ]
+  },
+  {
+    "id": "a380",
+    "name": "Airbus A380",
+    "nickname": "空中巨無霸",
+    "manufacturer": "Airbus · Double Deck",
+    "description": "A380 是全球唯一全雙層客機，以無與倫比的空間與靜音度聞名，成為旗艦航空在超級幹線上的招牌。",
+    "stats": [
+      { "label": "最大航程", "value": "15,200 公里" },
+      { "label": "翼展", "value": "79.75 公尺" },
+      { "label": "高度", "value": "24.1 公尺" },
+      { "label": "標準座位", "value": "500-600+" }
+    ],
+    "comfort": "上下雙層皆具備寬敞走道、靜音客艙與大型休憩區，堪稱空中郵輪。",
+    "routes": "杜拜－紐約、東京－火奴魯魯、倫敦－新加坡等超級幹線。",
+    "spotlight": [
+      "可設置酒吧、淋浴與親子遊戲區。",
+      "四具 GP7200 或 Trent 900 引擎提供巨大推力。",
+      "超大翼展搭載可變襟、副翼確保敏捷。"
+    ],
+    "airlines": ["阿聯酋航空", "全日空"],
+    "aliases": ["A380", "Airbus A380"],
+    "variants": [
+      { "id": "a380-800", "badge": "經典雙層", "summary": "標準 A380-800 供應四艙、全艙 ICE 娛樂與酒吧空間。" },
+      { "id": "a380-800-flying-honu", "badge": "Flying Honu", "summary": "ANA 專屬海龜彩繪版本，主打親子、度假風內容。" }
+    ]
+  },
+  {
+    "id": "b777",
+    "name": "Boeing 777",
+    "nickname": "全球旗艦",
+    "manufacturer": "Boeing · Widebody",
+    "description": "777 自 1990 年代問世以來就是遠程雙發霸主，寬敞客艙與 GE90 引擎讓它遍布全球幹線。",
+    "stats": [
+      { "label": "航程", "value": "13,650 公里" },
+      { "label": "翼展", "value": "64.8 公尺" },
+      { "label": "機身長", "value": "73.9 公尺" },
+      { "label": "最大起飛重量", "value": "351 噸" }
+    ],
+    "comfort": "可同時提供頭等、商務、豪經、經濟四艙，亦支援最新 Wi-Fi 與 Live TV。",
+    "routes": "亞洲－北美、歐洲－北美、跨洲幹線。",
+    "spotlight": [
+      "GE90-115B 曾是世界最強引擎。",
+      "三輪主起落架確保高載重。",
+      "成熟維修網絡，妥善率極高。"
+    ],
+    "airlines": ["中華航空", "國泰航空", "新加坡航空", "日本航空", "全日空", "阿聯酋航空", "卡達航空"],
+    "aliases": ["777", "Boeing 777", "B777"],
+    "variants": [
+      { "id": "777-300er", "badge": "超長程骨幹", "summary": "777-300ER 以 340+ 座大容量以及長航程維持全球最火熱寬體機地位。" }
+    ]
+  },
+  {
+    "id": "b777x",
+    "name": "Boeing 777X",
+    "nickname": "下一代伸展翼",
+    "manufacturer": "Boeing · Widebody",
+    "description": "777X 結合 777 的寬敞空間與 787 技術，標誌性的可折疊翼尖與 GE9X 引擎為下一代超長程航線鋪路。",
+    "stats": [
+      { "label": "航程", "value": "13,500 公里" },
+      { "label": "翼展 (展開)", "value": "71.75 公尺" },
+      { "label": "翼展 (折疊)", "value": "64.8 公尺" },
+      { "label": "典型座位", "value": "360-426 席" }
+    ],
+    "comfort": "全新頭等、商務艙將搭配更寬窗戶與高濕度環境，提升超長程舒適性。",
+    "routes": "全球超長程幹線與高需求市場。",
+    "spotlight": [
+      "折疊翼尖縮小停機坪需求。",
+      "GE9X 引擎擁有全球最大風扇。",
+      "採 787 靈活複合材料技術。"
+    ],
+    "airlines": ["阿聯酋航空"],
+    "aliases": ["777X", "Boeing 777-9"],
+    "variants": [
+      { "id": "777-9", "badge": "未來旗艦", "summary": "777-9 專為大容量市場打造，提供最新世代套房與更佳燃油效率。" }
+    ]
+  },
+  {
+    "id": "b787",
+    "name": "Boeing 787 Dreamliner",
+    "nickname": "省油長程王",
+    "manufacturer": "Boeing · Composite Widebody",
+    "description": "787 家族採全複合材料機身，結合低艙壓與電子調光窗，滿足航空公司開拓長程與薄航點的需求。",
+    "stats": [
+      { "label": "航程", "value": "11,910-14,140 公里" },
+      { "label": "翼展", "value": "60.1 公尺" },
+      { "label": "巡航速度", "value": "Mach 0.85" },
+      { "label": "典型座位", "value": "280-330 席" }
+    ],
+    "comfort": "Dreamliner 以電子調光窗、高濕度與平滑淨氣系統著稱。",
+    "routes": "跨太平洋、歐洲幹線、亞洲－紐澳、中東－歐洲。",
+    "spotlight": [
+      "複合材料降低機身重量。",
+      "電腦控制電動調光窗。",
+      "靜音機艙減少疲憊。"
+    ],
+    "airlines": ["長榮航空", "新加坡航空", "全日空", "卡達航空", "漢莎航空"],
+    "aliases": ["787", "B787", "Dreamliner"],
+    "variants": [
+      { "id": "787-9", "badge": "遠程均衡", "summary": "787-9 把航程與容量平衡，是航空公司擴張網路的萬用機。" },
+      { "id": "787-10", "badge": "區域大容量", "summary": "787-10 專注 6,400 海里內航線，供應更大的客艙。" }
+    ]
+  },
+  {
+    "id": "b767",
+    "name": "Boeing 767",
+    "nickname": "細膩中程老兵",
+    "manufacturer": "Boeing · Twin-aisle",
+    "description": "767 雖為經典老將，透過改艙與 Premium Economy 升級後依舊在中程市場扮演可靠角色。",
+    "stats": [
+      { "label": "航程", "value": "11,090 公里" },
+      { "label": "翼展", "value": "47.6 公尺" },
+      { "label": "座位配置", "value": "2-3-2 經濟艙" },
+      { "label": "典型座位", "value": "210-230" }
+    ],
+    "comfort": "2-3-2 經濟艙提供更多窗邊與走道座位，升級後仍保有靜音與寬敞感。",
+    "routes": "日本－東南亞、北美西岸、中程包機。",
+    "spotlight": [
+      "改艙後導入 SKY SUITE 或 Premium Eco。",
+      "牽引/維修成本相對低。",
+      "依舊具備良好貨艙容量。"
+    ],
+    "airlines": ["日本航空"],
+    "aliases": ["767", "B767"],
+    "variants": [
+      { "id": "767-300er-refit", "badge": "升級中程", "summary": "Refit 版本加入全新商務艙門與 LED 氣氛燈，讓經典機型重獲新生。" }
+    ]
+  },
+  {
+    "id": "b747",
+    "name": "Boeing 747",
+    "nickname": "女王終章",
+    "manufacturer": "Boeing · Four-engine",
+    "description": "747-8 Intercontinental 是空中女王的最終章，保留上層甲板和雙人窗位，並結合 787 靈感的新翼與 GEnx 引擎。",
+    "stats": [
+      { "label": "航程", "value": "14,320 公里" },
+      { "label": "翼展", "value": "68.4 公尺" },
+      { "label": "機身長", "value": "76.3 公尺" },
+      { "label": "典型座位", "value": "410-470" }
+    ],
+    "comfort": "上層甲板商務艙私密度高，下層前艙頭等擁有雙人窗位，是傳奇航空體驗。",
+    "routes": "歐洲－美洲、亞洲－北美等遠程航線。",
+    "spotlight": [
+      "四引擎支援極地航線。",
+      "曲線機鼻與最新燈光系統。",
+      "客貨混載能力強。"
+    ],
+    "airlines": ["漢莎航空"],
+    "aliases": ["747", "B747", "Queen of the Skies"],
+    "variants": [
+      { "id": "747-8-intercontinental", "badge": "上層甲板經典", "summary": "747-8I 延伸機身、採 GEnx 引擎，讓女王在豪華航線繼續發光。" }
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>機型詳細資訊 | AirTraveler's Book</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="detail-page">
+    <nav class="site-nav">
+      <div class="brand">AirTraveler's Book</div>
+      <div class="nav-links">
+        <a href="index.html">返回機隊一覽</a>
+      </div>
+    </nav>
+    <header class="hero hero-compact detail-hero">
+      <div class="hero-content">
+        <p class="eyebrow">Aircraft Detail</p>
+        <h1 id="aircraftName">載入中...</h1>
+        <p id="aircraftSubtitle">請稍候，正為你載入機型故事。</p>
+      </div>
+    </header>
+    <main class="aircraft-detail-layout">
+      <aside class="aircraft-side-panel detail-sidebar">
+        <section class="sidebar-block" id="aircraftSpotlight">
+          <div class="section-title">
+            <p class="eyebrow eyebrow-muted">Highlights</p>
+            <h2>機型亮點</h2>
+          </div>
+          <ul id="spotlightList" class="spotlight-list"></ul>
+        </section>
+        <section class="sidebar-block" id="aircraftAirlines">
+          <div class="section-title">
+            <p class="eyebrow eyebrow-muted">Operators</p>
+            <h2>常見航空與航線</h2>
+          </div>
+          <p id="aircraftRoutes" class="aircraft-summary"></p>
+          <ul id="airlineList" class="airline-chip-list"></ul>
+        </section>
+      </aside>
+      <article class="aircraft-card aircraft-overview" id="aircraftOverview">
+        <div class="overview-header">
+          <p class="aircraft-meta" id="aircraftMeta"></p>
+          <span class="badge" id="aircraftBadge">Signature Type</span>
+        </div>
+        <p class="aircraft-summary" id="aircraftDescription"></p>
+        <div class="spec-grid" id="aircraftStats"></div>
+        <div class="seat-callout" id="aircraftComfort"></div>
+        <section class="variant-section">
+          <div class="section-title">
+            <p class="eyebrow eyebrow-muted">Variants</p>
+            <h2>家族型號</h2>
+          </div>
+          <div id="variantGrid" class="variant-grid"></div>
+        </section>
+      </article>
+    </main>
+    <script src="aircraft.js"></script>
+  </body>
+</html>
