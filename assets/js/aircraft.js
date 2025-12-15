@@ -141,8 +141,8 @@ const createDetailMap = (details = []) => {
 };
 
 Promise.all([
-  fetchJSON("aircraft-families.json", "無法載入機型家族資料"),
-  fetchJSON("aircraft-details.json", "無法載入機型資料"),
+  fetchJSON("data/aircraft-families.json", "無法載入機型家族資料"),
+  fetchJSON("data/aircraft-details.json", "無法載入機型資料"),
 ])
   .then(([familyData, detailData]) => {
     const families = Array.isArray(familyData) ? familyData : [];

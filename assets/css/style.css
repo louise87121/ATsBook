@@ -128,11 +128,6 @@ a:hover {
   gap: 0.8rem;
 }
 
-.filter-row-inline {
-  grid-template-columns: repeat(2, minmax(200px, 1fr)) auto;
-  align-items: end;
-}
-
 .filter-field {
   display: flex;
   flex-direction: column;
@@ -161,28 +156,16 @@ a:hover {
 
 .search-panel select {
   background: rgba(255, 255, 255, 0.95);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg width='14' height='8' viewBox='0 0 14 8' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1l6 5 6-5' stroke='%231e7cf2' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1rem) center;
+  padding-right: 2.5rem;
 }
 
 .search-panel select:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-.filter-actions {
-  display: flex;
-  align-items: flex-end;
-}
-
-.search-panel button {
-  width: 100%;
-  border: none;
-  background: var(--accent);
-  color: white;
-  border-radius: 16px;
-  padding: 0.9rem 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 10px 20px rgba(6, 32, 81, 0.25);
 }
 
 main {
@@ -519,10 +502,6 @@ main {
 
   .filter-row {
     grid-template-columns: 1fr;
-  }
-
-  .filter-actions {
-    align-items: stretch;
   }
 
   main {

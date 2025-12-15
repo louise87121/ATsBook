@@ -121,7 +121,7 @@ let allowedModelSlugs = null;
 
 const setModelOptions = (options = []) => {
   if (!modelFilter) return;
-  modelFilter.innerHTML = '<option value="">選擇機型</option>';
+  modelFilter.innerHTML = '<option value="">所有機型</option>';
   options.forEach((option) => {
     const opt = document.createElement("option");
     opt.value = option.value;
@@ -182,7 +182,7 @@ const handleAirlineChange = () => {
 
 const populateAirlineOptions = () => {
   if (!airlineFilter) return;
-  airlineFilter.innerHTML = '<option value="">選擇航空公司</option>';
+  airlineFilter.innerHTML = '<option value="">所有航空公司</option>';
   airlineData.forEach((airline) => {
     const option = document.createElement("option");
     option.value = airline.id;
@@ -191,7 +191,7 @@ const populateAirlineOptions = () => {
   });
 };
 
-fetch("data.json")
+fetch("data/airlines.json")
   .then((response) => {
     if (!response.ok) throw new Error("無法載入航空資料");
     return response.json();
