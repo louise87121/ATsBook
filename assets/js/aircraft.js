@@ -65,6 +65,23 @@ const renderVariantSpecs = (stats = []) =>
     )
     .join("");
 
+const renderAirlineChips = (names = [], anchorMap = {}) =>
+  (names || [])
+    .map((name) => {
+      const label = (name || "").trim();
+      if (!label) return "";
+      const anchorEntry = anchorMap[label];
+      const displayText = anchorEntry
+        ? `${anchorEntry.shortName || label} ${anchorEntry.englishName || ""}`.trim()
+        : label;
+      if (anchorEntry) {
+        return `<li><a class="airline-chip" href="index.html#${anchorEntry.id}">${displayText}</a></li>`;
+      }
+      return `<li><span class="airline-chip">${displayText}</span></li>`;
+    })
+    .filter(Boolean)
+    .join("");
+
 const fetchJSON = (url, errorMessage) =>
   fetch(url).then((response) => {
     if (!response.ok) throw new Error(errorMessage);
@@ -140,13 +157,43 @@ const createDetailMap = (details = []) => {
   return map;
 };
 
+const createAirlineAnchorMap = (airlines = []) => {
+  const map = {};
+  airlines.forEach((airline = {}) => {
+    const id = airline.id;
+    if (!id) return;
+    const entry = {
+      id,
+      shortName: airline.shortName || "",
+      englishName: airline.englishName || "",
+    };
+    const names = [
+      airline.shortName,
+      airline.displayName,
+      airline.englishName,
+      ...(airline.aliases || []),
+    ];
+    names
+      .map((value) => (value || "").trim())
+      .filter(Boolean)
+      .forEach((value) => {
+        if (!map[value]) {
+          map[value] = entry;
+        }
+      });
+  });
+  return map;
+};
+
 Promise.all([
   fetchJSON("data/aircraft-families.json", "無法載入機型家族資料"),
   fetchJSON("data/aircraft-details.json", "無法載入機型資料"),
+  fetchJSON("data/airlines.json", "無法載入航空公司資料"),
 ])
-  .then(([familyData, detailData]) => {
+  .then(([familyData, detailData, airlineData]) => {
     const families = Array.isArray(familyData) ? familyData : [];
     const detailMap = createDetailMap(Array.isArray(detailData) ? detailData : []);
+    const anchorMap = createAirlineAnchorMap(Array.isArray(airlineData) ? airlineData : []);
 
     let targetSlug = familyParam;
     if (!targetSlug && modelParam) {
@@ -183,9 +230,7 @@ Promise.all([
     }
     if (routesEl) routesEl.textContent = family.routes || "";
     if (airlineListEl) {
-      const airlines = (family.airlines || [])
-        .map((name) => `<li class="airline-chip">${name}</li>`)
-        .join("");
+      const airlines = renderAirlineChips(family.airlines || [], anchorMap);
       airlineListEl.innerHTML = airlines;
       airlineListEl.style.display = airlines ? "flex" : "none";
     }

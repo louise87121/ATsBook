@@ -692,17 +692,30 @@ main {
 
 .airline-chip-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .airline-chip {
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--ink);
-  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.2rem 0;
+  color: var(--muted);
   font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.airline-chip:hover,
+.airline-chip:focus-visible {
+  color: var(--accent);
+}
+
+.detail-sidebar a.airline-chip,
+.detail-sidebar span.airline-chip {
+  color: #7a889e;
+  font-weight: 500;
 }
 
 .empty-state {
