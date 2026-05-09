@@ -116,6 +116,24 @@ const renderAirlines = (airlines = []) => {
   }
 };
 
+const getHashTargetId = () => {
+  const hash = window.location.hash.slice(1);
+  if (!hash) return "";
+  try {
+    return decodeURIComponent(hash);
+  } catch {
+    return hash;
+  }
+};
+
+const scrollToHashTarget = () => {
+  const targetId = getHashTargetId();
+  if (!targetId) return;
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  target.scrollIntoView({ block: "start", behavior: "smooth" });
+};
+
 let airlineData = [];
 let allowedModelSlugs = null;
 
@@ -202,6 +220,7 @@ fetch("data/airlines.json")
       resetModelOptions();
       populateAirlineOptions();
       renderAirlines(data);
+      scrollToHashTarget();
     }
   })
   .catch((error) => {
@@ -219,3 +238,5 @@ if (modelFilter) {
 if (airlineFilter) {
   airlineFilter.addEventListener("change", handleAirlineChange);
 }
+
+window.addEventListener("hashchange", scrollToHashTarget);

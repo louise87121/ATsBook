@@ -196,6 +196,10 @@ main {
   gap: 1rem;
 }
 
+.airline-article {
+  scroll-margin-top: 6rem;
+}
+
 .airline-card header {
   display: flex;
   justify-content: space-between;
