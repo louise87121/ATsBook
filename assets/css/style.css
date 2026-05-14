@@ -84,12 +84,21 @@ a:hover {
   padding: 3.2rem 2rem 3rem;
 }
 
+.home-page .hero {
+  background:
+    linear-gradient(90deg, rgba(7, 17, 33, 0.78), rgba(7, 17, 33, 0.36)),
+    url("../../img/pexels-ekky-wicaksono-1370255-3760564.jpg") center / cover no-repeat;
+}
+
 .hero-compact {
   padding: 3rem 2rem;
 }
 
 .detail-hero {
-  background: linear-gradient(135deg, #0d2340, #123d73 70%, #25a5ff);
+  background:
+    linear-gradient(90deg, rgba(7, 17, 33, 0.78), rgba(7, 17, 33, 0.36)),
+    url("../../img/pexels-ekky-wicaksono-1370255-3760564.jpg") center / cover no-repeat;
+  padding: 3.2rem 2rem 3rem;
 }
 
 .hero-content {
@@ -523,8 +532,12 @@ main {
   display: grid;
   grid-template-columns: minmax(240px, 260px) 1fr;
   gap: 1.2rem;
-  margin: 2rem auto 4rem;
+  margin: 2.75rem auto 4rem;
   align-items: start;
+}
+
+.detail-page main.aircraft-detail-layout {
+  margin-top: 2.75rem;
 }
 
 .aircraft-overview {
