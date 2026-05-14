@@ -50,6 +50,20 @@ const airlineHasModel = (airline = {}, slug = "") =>
   !slug ||
   (airline.models || []).some((model = {}) => slugifyModel(model.title || "") === slug);
 
+const cleanAirlineName = (name = "") =>
+  name
+    .replace(/\bAirlines?\b/gi, "")
+    .replace(/\bAir\b/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+const getAirlineTitle = (airline = {}) => {
+  const chineseName = airline.shortName || "";
+  const englishName = cleanAirlineName(airline.englishName || "");
+  if (chineseName && englishName) return `${chineseName} ${englishName}`;
+  return chineseName || englishName || cleanAirlineName(airline.displayName || "");
+};
+
 const buildSpecList = (specs = []) =>
   (specs || [])
     .map((spec) => `<li><strong>${spec.label}</strong>${spec.value}</li>`)
@@ -83,12 +97,14 @@ const renderAirlines = (airlines = []) => {
   if (detailContainer) {
     detailContainer.innerHTML = airlines
       .map(
-        (airline) => `
+        (airline) => {
+          const title = getAirlineTitle(airline);
+          return `
           <article class="aircraft-card airline-article" id="${airline.id}">
             <header>
               <div>
                 <p class="aircraft-code">${airline.code}</p>
-                <h2>${airline.displayName}</h2>
+                <h2>${title}</h2>
                 <p class="family">${airline.family}</p>
               </div>
               <span class="tag">${airline.tag}</span>
@@ -98,7 +114,8 @@ const renderAirlines = (airlines = []) => {
               ${buildModelCards(airline.models)}
             </div>
           </article>
-        `,
+        `;
+        },
       )
       .join("");
   }
@@ -109,7 +126,7 @@ const renderAirlines = (airlines = []) => {
       const li = document.createElement("li");
       const link = document.createElement("a");
       link.href = `#${airline.id}`;
-      link.textContent = airline.displayName;
+      link.textContent = getAirlineTitle(airline);
       li.appendChild(link);
       sidebarList.appendChild(li);
     });
@@ -139,7 +156,7 @@ let allowedModelSlugs = null;
 
 const setModelOptions = (options = []) => {
   if (!modelFilter) return;
-  modelFilter.innerHTML = '<option value="">所有機型</option>';
+  modelFilter.innerHTML = '<option value="">All Aircraft</option>';
   options.forEach((option) => {
     const opt = document.createElement("option");
     opt.value = option.value;
@@ -200,11 +217,11 @@ const handleAirlineChange = () => {
 
 const populateAirlineOptions = () => {
   if (!airlineFilter) return;
-  airlineFilter.innerHTML = '<option value="">所有航空公司</option>';
+  airlineFilter.innerHTML = '<option value="">All Airlines</option>';
   airlineData.forEach((airline) => {
     const option = document.createElement("option");
     option.value = airline.id;
-    option.textContent = airline.displayName;
+    option.textContent = getAirlineTitle(airline);
     airlineFilter.appendChild(option);
   });
 };

@@ -29,7 +29,7 @@ const renderEmptyState = (title, message) => {
     layoutEl.innerHTML = `
       <section class="aircraft-card empty-state">
         <p>${message}</p>
-        <a href="index.html">回到機隊選單</a>
+        <a href="index.html">Back to Fleet</a>
       </section>
     `;
   }
@@ -202,13 +202,13 @@ Promise.all([
     }
 
     if (!targetSlug) {
-      renderEmptyState("請選擇機型家族", "請從首頁點擊想了解的機型。說明卡將帶你進入對應的家族頁面。");
+      renderEmptyState("Select an Aircraft Family", "請從首頁點擊想了解的機型。說明卡將帶你進入對應的家族頁面。");
       return;
     }
 
     const family = findFamilyBySlug(families, targetSlug);
     if (!family) {
-      renderEmptyState("找不到機型家族", "目前沒有這個機型的資料，請選擇其他熱門機型。");
+      renderEmptyState("Aircraft Family Not Found", "目前沒有這個機型的資料，請選擇其他熱門機型。");
       return;
     }
 
@@ -238,5 +238,5 @@ Promise.all([
     buildVariantCards(family, detailMap);
   })
   .catch(() => {
-    renderEmptyState("資料載入失敗", "暫時無法取得機型資訊，請稍後再試。");
+    renderEmptyState("Unable to Load Data", "暫時無法取得機型資訊，請稍後再試。");
   });
